@@ -16,13 +16,13 @@ export default function NavHeader() {
                         width="150"
                     />
 
-                    <Navbar.Text className="text-light">
+                    <Navbar.Text className="text-light fw-bold">
                         {/**TODO: Wrap text in a React Router <Link /> tag */}
                         🛍️ Products
                     </Navbar.Text>
                 </Nav>
                 <Nav>
-                    <Navbar.Text className="text-light">
+                    <Navbar.Text className="text-light fw-bold">
                         {/**TODO: Wrap text in a React Router <Link /> tag */}
                         Cart
                         <Badge bg="success" className="rounded-circle ms-2">9</Badge>
