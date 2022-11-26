@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ProductCard from '../components/ProductCard'
+import Medusa from "@medusajs/medusa-js"
 
 export default function Home() {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const medusa = new Medusa()
+        const getProducts = async () => {
+            const results = await medusa.products.list();
+            setProducts(results.products)
+        }
+
+        getProducts()
+    }, []);
+
     return (
         <>
             <header>
@@ -11,9 +24,13 @@ export default function Home() {
             </header>
             <main>
                 <Row xs={1} sm={2} md={3} lg={4} className="g-4">
-                    {Array.from({ length: 4 }).map((_, idx) => (
-                        <Col key={idx}>
-                            <ProductCard title="Medusa sweatshirt" productId="123abcd" price={1950} thumbnail="https://medusa-public-images.s3.eu-west-1.amazonaws.com/sweatshirt-vintage-front.png" />
+                    {products.map((product) => (
+                        <Col key={product.id}>
+                            <ProductCard
+                                title={product.title}
+                                productId={product.id}
+                                price={product.variants[0].prices[1].amount}
+                                thumbnail={product.thumbnail} />
                         </Col>
                     ))}
                 </Row>

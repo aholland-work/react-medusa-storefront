@@ -25,7 +25,7 @@ export default function NavHeader() {
                 <Nav>
                     <Navbar.Text className="text-light fw-bold">
                         Cart
-                        <Badge bg="success" className="rounded-circle ms-2">9</Badge>
+                        <Badge bg="success" className="rounded-circle ms-2">0</Badge>
                         <span className="visually-hidden">number of items in the cart</span>
                     </Navbar.Text>
                 </Nav>
