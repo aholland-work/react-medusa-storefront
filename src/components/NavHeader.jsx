@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo-dark.svg'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Badge from 'react-bootstrap/Badge';
 
 export default function NavHeader() {
+    //TODO: Pull in total cart count and display in badge
     return (
         <Navbar bg="dark" variant="dark">
             <Container fluid>
@@ -17,13 +19,11 @@ export default function NavHeader() {
                     />
 
                     <Navbar.Text className="text-light fw-bold">
-                        {/**TODO: Wrap text in a React Router <Link /> tag */}
-                        🛍️ Products
+                        <Link className="text-decoration-none" to="/"> 🛍️ Products</Link>
                     </Navbar.Text>
                 </Nav>
                 <Nav>
                     <Navbar.Text className="text-light fw-bold">
-                        {/**TODO: Wrap text in a React Router <Link /> tag */}
                         Cart
                         <Badge bg="success" className="rounded-circle ms-2">9</Badge>
                         <span className="visually-hidden">number of items in the cart</span>
