@@ -7,7 +7,8 @@ import Nav from 'react-bootstrap/Nav';
 import Badge from 'react-bootstrap/Badge';
 
 export default function NavHeader() {
-    //TODO: Pull in total cart count and display in badge
+    const cartCount = localStorage.getItem('cartCount') ?? 0
+
     return (
         <Navbar bg="dark" variant="dark">
             <Container fluid>
@@ -25,8 +26,8 @@ export default function NavHeader() {
                 <Nav>
                     <Navbar.Text className="text-light fw-bold">
                         Cart
-                        <Badge bg="success" className="rounded-circle ms-2">0</Badge>
-                        <span className="visually-hidden">number of items in the cart</span>
+                        <Badge bg="success" className="ms-2">{cartCount}</Badge>
+                        <span className="visually-hidden">{cartCount} items in the cart</span>
                     </Navbar.Text>
                 </Nav>
             </Container>

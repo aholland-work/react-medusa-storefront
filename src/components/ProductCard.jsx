@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 
 export default function ProductCard(props) {
     const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(props.price / 100)
+
     return (
         <Card>
             <Card.Img variant="top" src={props.thumbnail} alt={props.title} />
