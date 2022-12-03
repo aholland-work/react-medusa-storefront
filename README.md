@@ -33,3 +33,5 @@ npm install
 ```bash
 npm run dev
 ```
+
+4. Preview the app by opening a new browser tab at http://localhost:8000/
