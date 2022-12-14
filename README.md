@@ -10,7 +10,7 @@ This tutorial uses Medusa v1.3.4. It is not guaranteed that it will work with fu
 
 ## Prerequisites
 > To use this project you should have a Medusa server running locally on port 9000. Check out [medusa-starter-default](https://github.com/medusajs/medusa-starter-default) for a quick setup
-- [Node.js at least v14.18](https://docs.medusajs.com/tutorial/set-up-your-development-environment#nodejs) or greater 
+- [Node.js](https://docs.medusajs.com/tutorial/set-up-your-development-environment#nodejs) v14.18+ or 16+ installed on your local machine.
 - One of the following package managers: `npm`, `yarn`, or `pnpm`.
 
 ## How to Install
