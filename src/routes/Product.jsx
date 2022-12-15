@@ -4,9 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Medusa from "@medusajs/medusa-js"
+import { medusaClient } from '../utils/client.js'
 
-const medusa = new Medusa()
 const US_REGION_ID = "reg_01GJ487XFZNFZ26WH1AJ314JWZ"
 
 const getFormattedPrice = (amount) => {
@@ -14,7 +13,7 @@ const getFormattedPrice = (amount) => {
 }
 
 const addProduct = async (cartId, product) => {
-    const { cart } = await medusa.carts.lineItems.create(cartId, {
+    const { cart } = await medusaClient.carts.lineItems.create(cartId, {
         variant_id: product.variants[0].id, //For simplicities sake only adding the first variant
         quantity: 1
     })
@@ -29,7 +28,7 @@ export default function Product() {
 
     useEffect(() => {
         const getIndividualProduct = async () => {
-            const results = await medusa.products.retrieve(id);
+            const results = await medusaClient.products.retrieve(id);
             setProduct(results.product)
         }
 
@@ -44,7 +43,7 @@ export default function Product() {
             addProduct(cartId, product)
         } else {
             //Create a cart if there isn't a pre-existing one
-            const { cart } = await medusa.carts.create({ region_id: US_REGION_ID })
+            const { cart } = await medusaClient.carts.create({ region_id: US_REGION_ID })
             localStorage.setItem('cartId', cart.id);
 
             //Use the newly generated cart's ID
