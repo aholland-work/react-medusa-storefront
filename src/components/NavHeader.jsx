@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo-dark.svg'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -15,7 +14,7 @@ export default function NavHeader() {
                 <Nav className="w-25 d-flex align-items-center justify-content-between">
                     <img
                         alt="Medusa logo"
-                        src={logo}
+                        src="https://raw.githubusercontent.com/aholland-work/react-medusa-storefront/main/src/assets/logo-dark.svg"
                         width="150"
                     />
 
