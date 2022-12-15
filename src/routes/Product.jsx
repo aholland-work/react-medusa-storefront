@@ -6,8 +6,6 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { medusaClient } from '../utils/client.js'
 
-const US_REGION_ID = "reg_01GJ487XFZNFZ26WH1AJ314JWZ"
-
 const getFormattedPrice = (amount) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount / 100);
 }
@@ -25,6 +23,7 @@ export default function Product() {
     // Get the product ID param from the URL.
     const { id } = useParams();
     const [product, setProduct] = useState({})
+    const [regionId, setRegionId] = useState("")
 
     useEffect(() => {
         const getIndividualProduct = async () => {
@@ -32,7 +31,13 @@ export default function Product() {
             setProduct(results.product)
         }
 
+        const getRegions = async () => {
+            const results = await medusaClient.regions.list()
+            setRegionId(results.regions[1].id)
+        }
+
         getIndividualProduct()
+        getRegions()
     }, []);
 
     const handleAddToCart = async () => {
@@ -43,7 +48,7 @@ export default function Product() {
             addProduct(cartId, product)
         } else {
             //Create a cart if there isn't a pre-existing one
-            const { cart } = await medusaClient.carts.create({ region_id: US_REGION_ID })
+            const { cart } = await medusaClient.carts.create({ region_id: regionId })
             localStorage.setItem('cartId', cart.id);
 
             //Use the newly generated cart's ID
