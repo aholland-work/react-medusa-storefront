@@ -6,7 +6,7 @@ This repository is the codebase of tutorial [Create a React Ecommerce Store with
 
 ## Medusa Version
 
-This tutorial uses Medusa v1.3.4. It is not guaranteed that it will work with future releases.
+This tutorial uses Medusa v1.7.2. It is not guaranteed that it will work with future releases.
 
 ## Prerequisites
 > To use this project you should have a Medusa server running locally on port 9000. Check out [medusa-starter-default](https://github.com/medusajs/medusa-starter-default) for a quick setup
