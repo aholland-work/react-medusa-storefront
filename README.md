@@ -1,6 +1,6 @@
 # Create a React Ecommerce Store with Medusa
 
-This repository is the codebase of tutorial [Create a React Ecommerce Store with Medusa](tutorial-link).
+This repository is the codebase of tutorial [Create a React Ecommerce Store with Medusa](https://medusajs.com/blog/react-ecommerce-store-medusa/).
 
 [Medusa Documentation](https://docs.medusajs.com/) | [Medusa Website](https://medusajs.com/) | [Medusa Repository](https://github.com/medusajs/medusa)
 
